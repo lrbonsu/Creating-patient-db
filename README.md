@@ -15,3 +15,24 @@ What you need to install the software and how to install them:
 
 ### Installation
 A step-by-step series of examples that tell you how to get a development environment running:
+
+1. **Clone the repository** to your local machine:
+```
+   git clone https://github.com/yourusername/public-health-sql-project.git
+```
+2. **Generate your synthetic dataset** using Synthea. First, if you don't already have Synthea, download and set it up by following the instructions on their official GitHub page: [Synthea on GitHub](https://github.com/synthetichealth/synthea). Here’s the command to generate data with the specified parameters:
+```
+java -jar synthea-with-dependencies.jar -p 1000 -a 12-51 -g F Texas --exporter.fhir.export false --exporter.csv.export true
+```
+3. **Import the generated CSV files** from Synthea into your SQL database.
+4. **Run the SQL scripts** provided in the `/sql_scripts` folder to create the schema and tables.
+
+## Usage
+Examples of how to use the system for common tasks:
+
+* **Basic Data Retrieval**: Refer to the basic_queries.sql script.
+* **Data Aggregation**: Check aggregation_queries.sql for examples on aggregating patient data for insights.
+* **Complex Joins**: Use join_queries.sql to understand relationships between different data tables.
+
+## Acknowledgments
+* Thanks to Synthea for providing a means to generate realistic healthcare datasets.
